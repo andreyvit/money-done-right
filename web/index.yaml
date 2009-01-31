@@ -9,3 +9,16 @@ indexes:
 # manually, move them above the marker line.  The index.yaml file is
 # automatically uploaded to the admin console when you next deploy
 # your application using appcfg.py.
+
+# Used 545 times in query history.
+- kind: Row
+  properties:
+  - name: account
+  - name: created_at
+    direction: desc
+
+# Used 16 times in query history.
+- kind: Transaction
+  properties:
+  - name: created_at
+    direction: desc

@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block tabid %}add-tab{% endblock %}
+{% block title %}Hello{% endblock %}
+
+{% block content %}
+
+<div class="new-transaction">
+  <form action="/add" method="POST">
+    
+    <div class="description">
+      <label>Describe this transaction:</label>
+      <textarea name="description" rows="3"></textarea>
+    </div>
+    
+    <div class="accounts clearfix">
+      {% for account in accounts %}
+      <div class="account">
+        <div class="name clearfix">{{ account.name }}</div>
+        <div class="balance clearfix"><label>∑</label> {{ account.balance }}</div>
+        <div class="delta clearfix"><label>∂</label>   <input type="text" name="{{ account.key }}_delta" value="" /></div>
+        <div class="balance clearfix"><label>∑</label> <input type="text" name="{{ account.key }}_balance" value="" /></div>
+        <div class="debt clearfix"><label>D</label>    {% if account.debt %}{{ account.debt }}{% else %}{% endif %}</div>
+        <div class="debt clearfix"><label>D</label>    <input type="text" name="{{ account.key }}_debt" value="" /></div>
+      </div>
+      {% endfor %}
+    </div>
+      
+    <div class="submit"><input type="submit" name="add" value="Add to log"></div>
+  </form>
+</div>
+
+{% endblock %}

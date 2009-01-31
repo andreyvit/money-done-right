@@ -16,37 +16,96 @@ blockquote, q { quotes: "" ""; }
 
 a img { border: none; }
 
+/* fixes */
+
+.clearfix:after {content:".";display:block;height:0;clear:both;visibility:hidden;}
+.clearfix {display:block;}
+.clear {clear:both;}
+
 /* global */
 
 body { font-size: 125%; line-height: 1.5; color: #222; font-family: Cambria, Georgia, serif; background: #eee; }
+input, textarea { font-size: 100%; font-family: Cambria, Georgia, serif; }
 
-body { padding: 1em 4em; }
+body { padding: 1em 6em; }
 
+.accounts-summary {}
+
+.account { width: 8em; float: left; margin-right: 2em; margin-top: 0.5em; }
+
+.accounts-summary .account { }
+/*.accounts-summary .name, .accounts-summary .balance, .accounts-summary .debt { margin-left: 1em; }*/
+.accounts-summary .balance { font-weight: bold; }
+.accounts-summary .debt { font-weight: bold; color: red; }
+
+.new-transaction { margin: 1em -3em 1em -3em; padding: 1em 3em; border: 1px dotted black; }
+.new-transaction .accounts label { float: left; width: 1em; margin-left: -1em; }
+.new-transaction .accounts input { display: block; margin-right: 1.5em; width: 7em; }
+
+.new-transaction .account { }
+.new-transaction .name { }
+.new-transaction .balance { font-weight: bold; }
+.new-transaction .debt { font-weight: bold; color: red; }
+
+.new-transaction .description { margin-bottom: 1em; }
+.new-transaction .description textarea { display: block; width: 100%; height: 3em; }
+
+.new-transaction .submit { margin-top: 1em; }
+.new-transaction .submit input { width: 150px; }
+
+.last { margin-right: 0px !important; }
 
 #footer { font-size: 0.6em; margin: 1em auto 0em auto; text-align: center; }
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 { font-weight: normal; color:#111; }
+
+p { margin: 0em 0px 1.5em 0px; line-height: 1.5; }
+
+h1 { font-size: 2.25em; line-height: 1.45; margin-bottom: 0.5555em; }
+
+h2 { font-size: 1.5em; line-height: 1.3333; margin-bottom: 0.6667em; }
+
+h3 { font-size: 1.125em; line-height: 1.7778; margin-bottom: 0.8889em; }
+
+h4 { font-size: 14.4pt; line-height: 1.25; margin-bottom: 1.25em; }
+
+h5 { font-size: 12pt; font-weight: bold; margin-bottom: 1.5em; }
+
+h6 { font-size: 12pt; font-weight: bold; }
+
+ul, ol { margin: 0 1.5em 1.5em 1.5em; }
+
+/* random */
+
+a.nav, a.nav:visited { color: blue; }
+
+
+
 
 /* begin css tabs */
 
 ul#tabnav { /* general settings */
 text-align: left; /* set to left, right or center */
-margin: 1em -4em 1em -4em; /* set margins as desired */
+margin: 1em -6em 1em -6em; /* set margins as desired */
 line-height: 1;
 font: 1em Cambria, Georgia, serif;
 border-bottom: 1px solid #6c6; /* set border COLOR as desired */
 list-style-type: none;
-padding: 3px 10px 3px 4em; /* THIRD number must change with respect to padding-top (X) below */
+padding: 3px 10px 3px 6em; /* THIRD number must change with respect to padding-top (X) below */
 }
 
 ul#tabnav li { /* do not change */
 display: inline;
 }
 
-body#main-tab li.main-tab, body#settings-tab li.settings-tab, body#tab3 li.tab3, body#tab4 li.tab4 { /* settings for selected tab */
+body#main-tab li.main-tab, body#settings-tab li.settings-tab, body#add-tab li.add-tab, body#tab4 li.tab4 { /* settings for selected tab */
 border-bottom: 1px solid #eee; /* set border color to page background color */
 background-color: #eee; /* set background color to match above border color */
 }
 
-body#main-tab li.main-tab a, body#settings-tab li.settings-tab a, body#tab3 li.tab3 a, body#tab4 li.tab4 a { /* settings for selected tab link */
+body#main-tab li.main-tab a, body#settings-tab li.settings-tab a, body#add-tab li.add-tab a, body#tab4 li.tab4 a { /* settings for selected tab link */
 background-color: #eee; /* set selected tab background color as desired */
 color: #000; /* set selected tab link color as desired */
 position: relative;

@@ -7,6 +7,9 @@
 <div class="fixed">
   <h1>Accounts</h1>
 
+  {% for account in accounts %}
+  <div>{{ account.name }}</div>
+  {% endfor %}
   <form method="POST" action="/settings/create-account.do">
     <input type="text" name="name" /> <input type="submit" name="add" value="Add account" />
   </form>

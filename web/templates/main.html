@@ -4,5 +4,32 @@
 
 {% block content %}
 
+<div class="accounts-summary clearfix">
+  {% for account in accounts %}
+  <div class="account">
+    <div class="name">{{ account.name }}</div>
+    <div class="balance">{% if account.balance %}{{ account.balance }}{% else %}(N/A){% endif %}</div>
+    {% if account.debt %}<div class="debt">{{ account.debt }}</div>{% else %}<div>&nbsp;</div>{% endif %}
+  </div>
+  {% endfor %}
+</div>
+
+<div class="history">
+  {% for transaction in transactions %}
+    <div class="transaction">
+      <span class="date">{{ transaction.created_at|date }}</span> — {{ transaction.description }}
+      <span class="rows">
+        {% for row in transaction.fetched_rows %}
+          <span class="row">
+            {{ row.account.name }}:
+            {% if row.balance %}∑{{ row.balance }}{%endif%}
+            {% if row.delta %}∂{{ row.delta }}{% endif %}
+            {% if row.debt %}D{{ row.debt }}{% endif %}
+          </span>
+        {% endfor %}
+      </span>
+    </div>
+  {% endfor %}
+</div>
 
 {% endblock %}

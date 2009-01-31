@@ -6,13 +6,18 @@
   <title>{% block title %}Untitled{% endblock %}</title>
   {% block head %}{% endblock %}
 </head>
-<body>
+<body id="{% block tabid %}{% endblock %}">
 
-    {% block content %}{% endblock %}
+  <ul id="tabnav">
+  	<li class="main-tab"><a href="/">View</a></li>
+  	<li class="settings-tab"><a href="/settings">Settings</a></li>
+  </ul>
 
-    <div id="footer">
-      &copy; 2009 — <a class="nav" href="http://www.yoursway.com/">YourSway LLC</a>
-    </div>
-  </div>
+  {% block content %}{% endblock %}
+
+  <!-- <div id="footer">
+    &copy; 2009 — <a class="nav" href="http://www.yoursway.com/">YourSway LLC</a>
+  </div> -->
+  
 </body>	
 </html>

@@ -61,15 +61,29 @@ class BaseHandler(webapp.RequestHandler):
     self.error(code)
     self.data.update(message = message)
     self.render_and_finish('errors', template)
+    
+class SettingsHandler(BaseHandler):
+  
+  @prolog()
+  def get(self):
+    self.render_and_finish('settings.html')
+
+class SettingsAddAccountHandler(BaseHandler):
+
+  @prolog()
+  def post(self):
+    self.redirect_and_finish('/settings')
 
 class MainHandler(BaseHandler):
 
   @prolog()
   def get(self):
-    self.render_and_finish('hello.html')
+    self.render_and_finish('main.html')
 
 url_mapping = [
-  ('/', MainHandler)
+  ('/', MainHandler),
+  ('/settings', SettingsHandler),
+  ('/settings/create-account.do', SettingsAddAccountHandler),
 ]
 
 def main():

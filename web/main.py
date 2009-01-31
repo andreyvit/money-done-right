@@ -94,7 +94,7 @@ class BaseHandler(webapp.RequestHandler):
   def compute_balance_for(self, accounts):
     for account in accounts:
       rows = account.rows.order('-created_at').fetch(100)
-      balance = None
+      balance = 0
       delta = 0
       debt = None
       for row in rows:
@@ -104,8 +104,7 @@ class BaseHandler(webapp.RequestHandler):
           delta += row.delta
         if debt == None and row.debt != None:
           debt = row.debt
-      if balance != None:
-        balance += delta
+      balance += delta
       account.balance = balance / 100.0 if balance else None
       account.debt = debt / 100.0 if debt else None
     
